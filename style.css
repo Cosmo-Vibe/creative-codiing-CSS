@@ -1,0 +1,93 @@
+
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    transform: scale(1);
+    opacity: 1;
+}
+
+.loading-screen.explode {
+    transform: scale(4); /* Scale up to create explosion effect */
+    opacity: 0; /* Fade out at the end of the animation */
+    visibility: hidden; /* Ensure it doesn't interfere with page interaction after animation */
+    animation: explodeEffect 1s forwards;
+}
+
+@keyframes explodeEffect {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #e25822; /* Fire color */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+    background: url('./Gaming_5000x3125.jpg') no-repeat center center/cover; /* Add your image URL here */
+    -webkit-user-select: none; /* Chrome, Safari, Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera, Firefox */
+}
+
+#header h1 {
+    font-family: 'Archivo', sans-serif;
+    color: transparent;
+    font-size: 6em;
+    cursor: none; /* Hide the cursor on the text */
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: url(https://i.giphy.com/13mwsrXEUtSyZi.webp);
+    background-size: cover;
+    background-position: center;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.parent {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.div1, .div2 {
+    width: 100%;
+}
